@@ -10,6 +10,8 @@ import pandas as pd
 from nnet import NeuralNet
 from nltk_utils import bag_of_words
 from flask import Flask, render_template, url_for, request, jsonify
+from flask_cors import CORS
+import os
 
 random.seed(datetime.now().timestamp())
 
@@ -48,6 +50,8 @@ conversation_symptoms = {}
 conversation_symptom_history = {}
 
 app = Flask(__name__)
+allowed_origins = os.environ.get('FRONTEND_ORIGIN', 'http://localhost:5173').split(',')
+CORS(app, resources={r'/symptom': {'origins': [origin.strip() for origin in allowed_origins if origin.strip()]}})
 
 def get_symptom(sentence):
     sentence = nltk.word_tokenize(sentence)

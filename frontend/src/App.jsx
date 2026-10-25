@@ -113,7 +113,11 @@ function App() {
     setLoading(true)
 
     try {
-      const response = await fetch('/api/symptom', {
+      const apiUrl = import.meta.env.VITE_API_BASE_URL
+        ? `${import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')}/symptom`
+        : '/api/symptom'
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
