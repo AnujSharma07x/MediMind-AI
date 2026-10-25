@@ -1,0 +1,38 @@
+﻿# Python environment and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account.json
+
+# Local backups
+backup-before-finalization-*/
+*.backup
+*.backup-*
+
+# Frontend generated files and dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Local editor settings
+.vscode/
+.idea/
+# Unused local artifacts
+/models/fitted_model.pickle
+/data/dataset.csv
+/nnet.py (2)
